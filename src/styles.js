@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-
+//todo figure out how to change font weight
 export const StudentGlobalStyle = createGlobalStyle`
 
   .bio {
