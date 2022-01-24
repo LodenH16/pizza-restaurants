@@ -9,8 +9,10 @@
 }
 
 .App::-webkit-scrollbar {
-  background: white;
   width: 5px;
+}
+.App::-webkit-scrollbar-track {
+  display: none;
 }
 .App::-webkit-scrollbar-thumb {
   background-color: gray;
