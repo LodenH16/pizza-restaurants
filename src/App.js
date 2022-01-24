@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { StudentGlobalStyle } from "./styles";
+import React, { useState } from "react";
+import Student from "./components/Student";
 
-function App() {
+const App = () => {
+  const [data, setData] = useState(null);
+
+  React.useEffect(() => {
+    fetch("https://api.hatchways.io/assessment/students")
+      .then((res) => res.json())
+      .then((data) => setData(data.students));
+  }, []);
+  console.log(data);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StudentGlobalStyle />
+      {data && data.map((data) => <Student data={data} />)}
     </div>
   );
-}
+};
 
 export default App;
