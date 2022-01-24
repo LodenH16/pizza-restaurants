@@ -9,7 +9,9 @@ export const StudentGlobalStyle = createGlobalStyle`
         margin: 10px 0px 3px 0px;
     }
     .bio p {
-        margin: 3px 0px 0px 10px;
+        margin: 3px 0px 0px 15px;
+        font-size: 0.7rem;
+        line-height: 1rem;
     }
 
 `;
