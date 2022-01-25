@@ -1,7 +1,6 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 //todo figure out how to change font weight
 export const StudentGlobalStyle = createGlobalStyle`
-
   .bio {
     display: inline;
   }
@@ -14,4 +13,13 @@ export const StudentGlobalStyle = createGlobalStyle`
         line-height: 1rem;
     }
 
+`;
+
+export const Input = styled.input`
+  margin: 0px auto 0px 5px;
+  padding: 10px 5px 5px;
+  font-family: Raleway;
+  width: 98%;
+  border: none;
+  border-bottom: 1px solid lightgray;
 `;
