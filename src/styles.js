@@ -23,3 +23,8 @@ export const Input = styled.input`
   border: none;
   border-bottom: 1px solid lightgray;
 `;
+
+export const ErrorMessage = styled.p`
+  color: salmon;
+  margin-left: 20px;
+`;

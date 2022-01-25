@@ -1,5 +1,5 @@
 import "./App.css";
-import { Input, StudentGlobalStyle } from "./styles";
+import { ErrorMessage, Input, StudentGlobalStyle } from "./styles";
 import React, { useState, useEffect } from "react";
 import Student from "./components/Student";
 
@@ -53,7 +53,7 @@ const App = () => {
         placeholder="Search by name"
         onChange={(event) => searchStudents(event.target.value)}
       ></Input>
-      {errorMessage && <p>{errorMessage}</p>}
+      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       <StudentGlobalStyle />
       {filteredStudents.length > 0 &&
         filteredStudents.map((data) => <Student data={data} />)}
