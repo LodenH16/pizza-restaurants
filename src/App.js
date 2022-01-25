@@ -1,5 +1,5 @@
 import "./App.css";
-import { StudentGlobalStyle } from "./styles";
+import { Input, StudentGlobalStyle } from "./styles";
 import React, { useState, useEffect } from "react";
 import Student from "./components/Student";
 
@@ -11,7 +11,10 @@ const App = () => {
   useEffect(() => {
     fetch("https://api.hatchways.io/assessment/students")
       .then((res) => res.json())
-      .then((data) => setStudents(data.students));
+      .then((data) => {
+        setStudents(data.students);
+        setFilteredStudents(data.students);
+      });
   }, []);
 
   const searchStudents = (searchValue) => {
@@ -22,14 +25,14 @@ const App = () => {
         student.lastName.toUpperCase().includes(searchValue.toUpperCase())
       );
     });
-    console.log("SearchValue: ", searchValue);
+    console.log(students);
     switch (true) {
       case /\W/.test(searchValue):
-        console.log("here");
         setErrorMessage("Error: Invalid Character");
         setFilteredStudents(students);
         break;
       case searchValue !== "" && filteredList.length > 0:
+        console.log("here");
         setErrorMessage(null);
         setFilteredStudents(filteredList);
         break;
@@ -46,13 +49,13 @@ const App = () => {
 
   return (
     <div className="App">
-      <input
+      <Input
         placeholder="Search by name"
         onChange={(event) => searchStudents(event.target.value)}
-      ></input>
+      ></Input>
       {errorMessage && <p>{errorMessage}</p>}
       <StudentGlobalStyle />
-      {filteredStudents &&
+      {filteredStudents.length > 0 &&
         filteredStudents.map((data) => <Student data={data} />)}
     </div>
   );
