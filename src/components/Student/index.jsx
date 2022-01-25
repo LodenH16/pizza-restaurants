@@ -1,3 +1,4 @@
+import TestScores from "../TestScores";
 import { StudentCard, StudentImg } from "./styles";
 
 const Student = (props) => {
@@ -8,7 +9,7 @@ const Student = (props) => {
     info.grades.reduce((sum, data) => {
       return sum + parseInt(data);
     }, 0) / info.grades.length;
-
+  //TODO add keys
   return (
     <>
       <StudentCard>
@@ -21,6 +22,7 @@ const Student = (props) => {
           <p>Company: {info.company}</p>
           <p>Skill: {info.skill}</p>
           <p>Average: {gradeAverage}%</p>
+          <TestScores scores={info.grades} />
         </div>
       </StudentCard>
     </>

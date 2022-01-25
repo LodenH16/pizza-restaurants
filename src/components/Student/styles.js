@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StudentCard = styled.div`
-  height: 30%;
   display: flex;
+  flex-wrap: wrap;
   border-bottom: 1px solid lightgray;
 `;
 
