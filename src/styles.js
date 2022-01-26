@@ -16,6 +16,32 @@ export const StudentGlobalStyle = createGlobalStyle`
 
 `;
 
+export const AppWrapper = styled.div`
+  margin: auto;
+  margin-top: 50px;
+  background-color: white;
+  height: 500px;
+  width: 70%;
+  min-width: 455x;
+  max-width: 665px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border-radius: 10px;
+  box-shadow: 1px 2px 3px 1px #bcbcbc;
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    display: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: gray;
+    width: 10px;
+    border-radius: 5px;
+  }
+`;
+
 export const Input = styled.input`
   margin: 0px auto 0px 5px;
   padding: 10px 5px 5px;

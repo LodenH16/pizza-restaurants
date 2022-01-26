@@ -1,5 +1,4 @@
-import "./App.css";
-import { ErrorMessage, Input, StudentGlobalStyle } from "./styles";
+import { ErrorMessage, Input, StudentGlobalStyle, AppWrapper } from "./styles";
 import React, { useState, useEffect } from "react";
 import Student from "./components/Student";
 
@@ -48,7 +47,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <AppWrapper>
       <Input
         placeholder="Search by name"
         onChange={(event) => searchStudents(event.target.value)}
@@ -59,7 +58,7 @@ const App = () => {
         filteredStudents.map((data, index) => (
           <Student key={`student${index}`} data={data} />
         ))}
-    </div>
+    </AppWrapper>
   );
 };
 
