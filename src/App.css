@@ -4,6 +4,8 @@
   background-color: white;
   height: 500px;
   width: 70%;
+  min-width: 455x;
+  max-width: 665px;
   overflow-y: scroll;
   overflow-x: hidden;
   border-radius: 10px;
