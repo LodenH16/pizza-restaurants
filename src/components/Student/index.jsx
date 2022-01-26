@@ -14,7 +14,6 @@ const Student = (props) => {
     info.grades.reduce((sum, data) => {
       return sum + parseInt(data);
     }, 0) / info.grades.length;
-  //TODO add keys
   return (
     <>
       <StudentCard>
