@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StudentCard = styled.div`
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   border-bottom: 1px solid lightgray;
@@ -14,6 +15,16 @@ export const StudentImg = styled.img`
   border: 1px solid lightgray;
 `;
 
-export const PlusButton = styled.button`
-  height: 50px;
+export const TestsButton = styled.button`
+  height: 35px;
+  width: 35px;
+  border: none;
+  background: transparent;
+  position: absolute;
+  right: 5px;
+  top: 10px;
+`;
+
+export const TestButtonImg = styled.img`
+  width: 100%;
 `;

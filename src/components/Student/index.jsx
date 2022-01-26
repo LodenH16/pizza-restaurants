@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { PlusButton, StudentCard, StudentImg } from "./styles";
+import { TestButtonImg, StudentCard, StudentImg, TestsButton } from "./styles";
 import Bio from "./Bio";
+import plus from "../../assets/plus.png";
+import minus from "../../assets/minus.png";
 
 const Student = (props) => {
   const [testScoresDisplay, setTestScoresDisplay] = useState(false);
@@ -22,9 +24,9 @@ const Student = (props) => {
           gradeAverage={gradeAverage}
           testScoresDisplay={testScoresDisplay}
         />
-        <PlusButton onClick={() => setTestScoresDisplay(!testScoresDisplay)}>
-          X
-        </PlusButton>
+        <TestsButton onClick={() => setTestScoresDisplay(!testScoresDisplay)}>
+          <TestButtonImg src={testScoresDisplay ? minus : plus} />
+        </TestsButton>
       </StudentCard>
     </>
   );
