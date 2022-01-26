@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from "styled-components";
 export const StudentGlobalStyle = createGlobalStyle`
   .bio {
     display: inline;
+    margin-bottom: 10px;
   }
    .bio h2 {
         margin: 10px 0px 3px 0px;
