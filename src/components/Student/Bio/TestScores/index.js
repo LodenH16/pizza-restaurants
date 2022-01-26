@@ -4,13 +4,15 @@ const TestScores = (props) => {
   console.log(props);
   return (
     <TestScoresCard>
-      {props.scores.map((score, index) => {
-        return (
-          <p>
-            Test {index + 1}: {score}%
-          </p>
-        );
-      })}
+      <ol>
+        {props.scores.map((score, index) => {
+          return (
+            <li>
+              Test {index + 1}: <span> {score}%</span>
+            </li>
+          );
+        })}
+      </ol>
     </TestScoresCard>
   );
 };
