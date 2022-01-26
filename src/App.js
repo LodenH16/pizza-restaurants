@@ -56,7 +56,9 @@ const App = () => {
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       <StudentGlobalStyle />
       {filteredStudents.length > 0 &&
-        filteredStudents.map((data) => <Student data={data} />)}
+        filteredStudents.map((data, index) => (
+          <Student key={`student${index}`} data={data} />
+        ))}
     </div>
   );
 };
