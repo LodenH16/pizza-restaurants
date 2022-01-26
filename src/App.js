@@ -1,4 +1,4 @@
-import { ErrorMessage, Input, AppWrapper } from "./styles";
+import { ErrorMessage, Input, AppWrapper, SearchWrapper } from "./styles";
 import React, { useState, useEffect } from "react";
 import Student from "./components/Student";
 
@@ -48,10 +48,12 @@ const App = () => {
 
   return (
     <AppWrapper>
-      <Input
-        placeholder="Search by name"
-        onChange={(event) => searchStudents(event.target.value)}
-      ></Input>
+      <SearchWrapper>
+        <Input
+          placeholder="Search by name"
+          onChange={(event) => searchStudents(event.target.value)}
+        ></Input>
+      </SearchWrapper>
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       {filteredStudents.length > 0 &&
         filteredStudents.map((data, index) => (

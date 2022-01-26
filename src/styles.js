@@ -34,9 +34,17 @@ export const Input = styled.input`
   width: 100%;
   border: none;
   border-bottom: 1px solid lightgray;
+  :focus {
+    outline: none;
+    border-bottom: 1px solid black;
+  }
 `;
 
 export const ErrorMessage = styled.p`
   color: salmon;
   margin-left: 20px;
+`;
+
+export const SearchWrapper = styled.div`
+  padding: 5px;
 `;
