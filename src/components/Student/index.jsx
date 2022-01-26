@@ -5,10 +5,14 @@ import plus from "../../assets/plus.png";
 import minus from "../../assets/minus.png";
 
 const Student = (props) => {
+  //todo destructure props
   const [testScoresDisplay, setTestScoresDisplay] = useState(false);
-  console.log(testScoresDisplay);
+  const [tags, setTags] = useState([]);
   const info = props.data;
 
+  const addTag = (newTag) => {
+    setTags([...tags, newTag]);
+  };
   //get average from array of grades
   const gradeAverage =
     info.grades.reduce((sum, data) => {
@@ -22,6 +26,7 @@ const Student = (props) => {
           info={info}
           gradeAverage={gradeAverage}
           testScoresDisplay={testScoresDisplay}
+          addTagFunction={addTag}
         />
         <TestsButton onClick={() => setTestScoresDisplay(!testScoresDisplay)}>
           <TestButtonImg src={testScoresDisplay ? minus : plus} />

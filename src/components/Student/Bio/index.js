@@ -1,11 +1,17 @@
 import TestScores from "./TestScores";
 import { BioWrapper, StudentDetails, StudentName } from "./styles";
 import { Input } from "../../../styles";
-//import { useState } from "react";
 
-const Bio = ({ info, gradeAverage, testScoresDisplay }) => {
-  //const [tags, setTags] = useState([]);
+const Bio = ({ info, gradeAverage, testScoresDisplay, addTagFunction }) => {
   const { firstName, lastName, email, company, skill, grades } = info;
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      console.log(e.target.value);
+      addTagFunction(e.target.value);
+      e.target.value = "";
+    }
+  };
 
   return (
     <StudentDetails>
@@ -18,7 +24,7 @@ const Bio = ({ info, gradeAverage, testScoresDisplay }) => {
         <p>Skill: {skill}</p>
         <p>Average: {gradeAverage}%</p>
         {testScoresDisplay && <TestScores scores={grades} />}
-        <Input placeholder="Add a tag" />
+        <Input placeholder="Add a tag" onKeyUp={(e) => handleKeyPress(e)} />
       </BioWrapper>
     </StudentDetails>
   );
