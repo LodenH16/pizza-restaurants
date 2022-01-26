@@ -26,12 +26,12 @@ export const AppWrapper = styled.div`
     border-radius: 5px;
   }
 `;
-
+//todo remove focus border
 export const Input = styled.input`
-  margin: 0px auto 0px 5px;
+  margin: 0px auto 0px 0px;
   padding: 10px 5px 5px;
   font-family: Raleway;
-  width: 98%;
+  width: 100%;
   border: none;
   border-bottom: 1px solid lightgray;
 `;
