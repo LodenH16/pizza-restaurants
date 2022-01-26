@@ -8,9 +8,9 @@ export const StudentCard = styled.div`
 `;
 
 export const StudentImg = styled.img`
-  height: 70%;
+  width: 95px;
   border-radius: 50%;
-  margin: auto 20px auto 20px;
+  margin: 20px 20px auto 20px;
   display: inline;
   border: 1px solid lightgray;
 `;
