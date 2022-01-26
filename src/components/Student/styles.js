@@ -13,3 +13,7 @@ export const StudentImg = styled.img`
   display: inline;
   border: 1px solid lightgray;
 `;
+
+export const PlusButton = styled.button`
+  height: 50px;
+`;
