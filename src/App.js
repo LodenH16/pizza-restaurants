@@ -1,4 +1,4 @@
-import { ErrorMessage, Input, StudentGlobalStyle, AppWrapper } from "./styles";
+import { ErrorMessage, Input, AppWrapper } from "./styles";
 import React, { useState, useEffect } from "react";
 import Student from "./components/Student";
 
@@ -53,7 +53,6 @@ const App = () => {
         onChange={(event) => searchStudents(event.target.value)}
       ></Input>
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-      <StudentGlobalStyle />
       {filteredStudents.length > 0 &&
         filteredStudents.map((data, index) => (
           <Student key={`student${index}`} data={data} />
