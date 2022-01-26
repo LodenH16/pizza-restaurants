@@ -1,18 +1,26 @@
 import TestScores from "./TestScores";
-import { BioWrapper } from "./styles";
+import { BioWrapper, StudentDetails, StudentName } from "./styles";
+import { Input } from "../../../styles";
+//import { useState } from "react";
 
 const Bio = ({ info, gradeAverage, testScoresDisplay }) => {
+  //const [tags, setTags] = useState([]);
   const { firstName, lastName, email, company, skill, grades } = info;
 
   return (
-    <BioWrapper>
-      <h2>{firstName.toUpperCase() + " " + lastName.toUpperCase()}</h2>
-      <p>Email: {email}</p>
-      <p>Company: {company}</p>
-      <p>Skill: {skill}</p>
-      <p>Average: {gradeAverage}%</p>
-      {testScoresDisplay && <TestScores scores={grades} />}
-    </BioWrapper>
+    <StudentDetails>
+      <StudentName>
+        {firstName.toUpperCase() + " " + lastName.toUpperCase()}
+      </StudentName>
+      <BioWrapper>
+        <p>Email: {email}</p>
+        <p>Company: {company}</p>
+        <p>Skill: {skill}</p>
+        <p>Average: {gradeAverage}%</p>
+        {testScoresDisplay && <TestScores scores={grades} />}
+        <Input placeholder="Add a tag" />
+      </BioWrapper>
+    </StudentDetails>
   );
 };
 export default Bio;

@@ -1,14 +1,13 @@
 import styled from "styled-components";
 
 export const BioWrapper = styled.div`
-  display: inline;
-  margin-bottom: 12px;
-  h2 {
-    margin: 10px 0px 3px 0px;
-  }
+  overflow: visible;
+  margin: 0px 0px 12px 15px;
+  width: 150px;
   p,
   li {
-    margin: 3px 0px 0px 15px;
+    white-space: nowrap;
+    margin: 3px 0px 0px 0px;
     font-size: 0.7rem;
     line-height: 1rem;
   }
@@ -20,4 +19,15 @@ export const BioWrapper = styled.div`
   li span {
     margin-left: 20px;
   }
+`;
+
+export const StudentName = styled.h2`
+  margin: 10px 0px 3px 0px;
+  width: 100%;
+  flex-basis: 100%;
+`;
+
+export const StudentDetails = styled.div`
+  display: block;
+  margin-bottom: 12px;
 `;
