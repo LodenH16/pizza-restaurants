@@ -11,11 +11,12 @@ const Student = ({
   createErrorMessage,
 }) => {
   const [testScoresDisplay, setTestScoresDisplay] = useState(false);
-  const [studentDisplay, setStudentDisplay] = useState(true);
   const [tags, setTags] = useState([]);
   const [hasNameMatch, setNameMatch] = useState(true);
+  const [hasTagMatch, setTagMatch] = useState(true);
   const { city, company, email, firstName, grades, lastName, pic, skill } =
     studentInfo;
+
   const addTag = (newTag) => {
     setTags([...tags, newTag]);
   };
@@ -28,12 +29,11 @@ const Student = ({
     }, 0) / grades.length;
 
   useEffect(() => {
-    setNameMatch(fullName.includes(searchName.toUpperCase()));
+    setNameMatch(fullName.includes(searchName.trim().toUpperCase()));
+    setTagMatch(tags.join("").includes(searchTag));
   }, [searchTag, searchName, tags]);
 
-  //todo allow spaces
-
-  if (hasNameMatch) {
+  if (hasNameMatch && hasTagMatch) {
     return (
       <StudentCard>
         <StudentImg src={pic} alt={"student profile pic"} />
