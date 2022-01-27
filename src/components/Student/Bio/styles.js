@@ -4,14 +4,14 @@ export const BioWrapper = styled.div`
   overflow: visible;
   margin: 0px 0px 12px 15px;
   width: 150px;
-  p,
   li {
     white-space: nowrap;
     margin: 3px 0px 0px 0px;
     font-size: 0.7rem;
     line-height: 1rem;
   }
-  ol {
+  ol,
+  ul {
     padding-left: 0px;
     list-style: none;
     margin-bottom: 0px;

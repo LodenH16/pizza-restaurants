@@ -1,13 +1,19 @@
 import TestScores from "./TestScores";
 import { BioWrapper, StudentDetails, StudentName } from "./styles";
 import { Input } from "../../../styles";
+import TagBlock from "./TagBlock";
 
-const Bio = ({ info, gradeAverage, testScoresDisplay, addTagFunction }) => {
+const Bio = ({
+  info,
+  gradeAverage,
+  testScoresDisplay,
+  addTagFunction,
+  tags,
+}) => {
   const { firstName, lastName, email, company, skill, grades } = info;
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
-      console.log(e.target.value);
       addTagFunction(e.target.value);
       e.target.value = "";
     }
@@ -19,11 +25,14 @@ const Bio = ({ info, gradeAverage, testScoresDisplay, addTagFunction }) => {
         {firstName.toUpperCase() + " " + lastName.toUpperCase()}
       </StudentName>
       <BioWrapper>
-        <p>Email: {email}</p>
-        <p>Company: {company}</p>
-        <p>Skill: {skill}</p>
-        <p>Average: {gradeAverage}%</p>
+        <ul>
+          <li>Email: {email}</li>
+          <li>Company: {company}</li>
+          <li>Skill: {skill}</li>
+          <li>Average: {gradeAverage}%</li>
+        </ul>
         {testScoresDisplay && <TestScores scores={grades} />}
+        <TagBlock tags={tags} />
         <Input placeholder="Add a tag" onKeyUp={(e) => handleKeyPress(e)} />
       </BioWrapper>
     </StudentDetails>

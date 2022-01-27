@@ -27,6 +27,7 @@ const Student = (props) => {
           gradeAverage={gradeAverage}
           testScoresDisplay={testScoresDisplay}
           addTagFunction={addTag}
+          tags={tags}
         />
         <TestsButton onClick={() => setTestScoresDisplay(!testScoresDisplay)}>
           <TestButtonImg src={testScoresDisplay ? minus : plus} />
