@@ -17,9 +17,6 @@ const Student = ({
   const { city, company, email, firstName, grades, lastName, pic, skill } =
     studentInfo;
 
-  const addTag = (newTag) => {
-    setTags([...tags, newTag]);
-  };
   //concat first and last name
   const fullName = firstName.toUpperCase().concat(" ", lastName.toUpperCase());
   //get average from array of grades
@@ -28,10 +25,14 @@ const Student = ({
       return sum + parseInt(data);
     }, 0) / grades.length;
 
+  const addTag = (newTag) => {
+    setTags([...tags, newTag]);
+  };
+
   useEffect(() => {
     setNameMatch(fullName.includes(searchName.trim().toUpperCase()));
     setTagMatch(tags.join("").includes(searchTag));
-  }, [searchTag, searchName, tags]);
+  }, [fullName, searchTag, searchName, tags]);
 
   if (hasNameMatch && hasTagMatch) {
     return (
