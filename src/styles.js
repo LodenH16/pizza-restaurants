@@ -9,26 +9,18 @@ export const AppWrapper = styled.div`
   width: 70%;
   min-width: 455x;
   max-width: 665px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden;
   border-radius: 10px;
   box-shadow: 1px 2px 3px 1px #bcbcbc;
+`;
 
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  ::-webkit-scrollbar-track {
-    display: none;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: gray;
-    width: 10px;
-    border-radius: 5px;
-  }
+export const ErrorMessage = styled.p`
+  color: salmon;
+  margin-left: 20px;
 `;
 
 export const Input = styled.input`
-  margin: 0px auto 0px 0px;
+  margin: 5px auto 0px auto;
   padding: 10px 5px 5px;
   font-family: Raleway;
   width: 100%;
@@ -40,15 +32,33 @@ export const Input = styled.input`
   }
 `;
 
-export const ErrorMessage = styled.p`
-  color: salmon;
-  margin-left: 20px;
-`;
-
 export const SearchWrapper = styled.div`
-  padding: 5px;
+  padding: 5px 5px 5px 5px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 10;
+  height: 18%;
+  overflow: hidden;
+  position: sticky;
+  top: 0px;
+`;
+//todo add margin between search bars
+export const StudentsWrapper = styled.div`
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 82%;
 
-  .secondInput {
-    margin-top: 10px;
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    display: none;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: gray;
+    width: 10px;
+    border-radius: 5px;
   }
 `;

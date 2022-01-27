@@ -1,10 +1,17 @@
-import { ErrorMessage, Input, AppWrapper, SearchWrapper } from "./styles";
+import {
+  ErrorMessage,
+  Input,
+  AppWrapper,
+  SearchWrapper,
+  StudentsWrapper,
+} from "./styles";
 import React, { useState, useEffect } from "react";
 import Student from "./components/Student";
 
 const App = () => {
   const [students, setStudents] = useState([]);
   const [filteredStudents, setFilteredStudents] = useState([]);
+  //todo make errormessage an empty string
   const [errorMessage, setErrorMessage] = useState(null);
   const [searchTag, setSearchTag] = useState("");
   useEffect(() => {
@@ -19,23 +26,26 @@ const App = () => {
   const searchStudents = (searchValue) => {
     //filter the students
     const filteredList = students.filter((student) => {
+      //todo trim searchValue
       return (
         student.firstName.toUpperCase().includes(searchValue.toUpperCase()) ||
         student.lastName.toUpperCase().includes(searchValue.toUpperCase())
       );
     });
-    console.log(students);
+    //todo make switch into if else with variables
+    //todo allow spaces
+    const hasNameMatch = filteredList.length > 0;
+    //const hasValue = searchValue !== "";
     switch (true) {
       case /\W/.test(searchValue):
         setErrorMessage("Error: Invalid Character");
         setFilteredStudents(students);
         break;
-      case searchValue !== "" && filteredList.length > 0:
-        console.log("here");
+      case searchValue !== "" && hasNameMatch:
         setErrorMessage(null);
         setFilteredStudents(filteredList);
         break;
-      case searchValue !== "" && filteredList.length === 0:
+      case searchValue !== "" && !hasNameMatch:
         setErrorMessage("No results");
         setFilteredStudents(filteredList);
         break;
@@ -53,22 +63,22 @@ const App = () => {
           placeholder="Search by name"
           onChange={(e) => searchStudents(e.target.value)}
         ></Input>
-        {/*I don't like this*/}
         <Input
-          className="secondInput"
           placeholder="Search by tag"
           onChange={(e) => setSearchTag(e.target.value)}
         ></Input>
       </SearchWrapper>
-      {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
-      {filteredStudents.length > 0 &&
-        filteredStudents.map((data, index) => (
-          <Student
-            key={`student${index}`}
-            studentInfo={data}
-            searchTag={searchTag}
-          />
-        ))}
+      <StudentsWrapper>
+        {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+        {filteredStudents.length > 0 &&
+          filteredStudents.map((data, index) => (
+            <Student
+              key={`student${index}`}
+              studentInfo={data}
+              searchTag={searchTag}
+            />
+          ))}
+      </StudentsWrapper>
     </AppWrapper>
   );
 };
