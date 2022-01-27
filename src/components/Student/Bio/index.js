@@ -4,14 +4,17 @@ import { Input } from "../../../styles";
 import TagBlock from "./TagBlock";
 
 const Bio = ({
-  info,
+  firstName,
+  lastName,
+  email,
+  company,
+  skill,
+  grades,
   gradeAverage,
   testScoresDisplay,
   addTagFunction,
   tags,
 }) => {
-  const { firstName, lastName, email, company, skill, grades } = info;
-
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       addTagFunction(e.target.value);
