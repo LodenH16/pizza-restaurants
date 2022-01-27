@@ -26,7 +26,7 @@ export const AppWrapper = styled.div`
     border-radius: 5px;
   }
 `;
-//todo remove focus border
+
 export const Input = styled.input`
   margin: 0px auto 0px 0px;
   padding: 10px 5px 5px;
@@ -47,4 +47,8 @@ export const ErrorMessage = styled.p`
 
 export const SearchWrapper = styled.div`
   padding: 5px;
+
+  .secondInput {
+    margin-top: 10px;
+  }
 `;

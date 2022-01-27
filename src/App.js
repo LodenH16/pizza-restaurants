@@ -53,6 +53,8 @@ const App = () => {
           placeholder="Search by name"
           onChange={(event) => searchStudents(event.target.value)}
         ></Input>
+        {/*I don't like this*/}
+        <Input className="secondInput" placeholder="Search by tag"></Input>
       </SearchWrapper>
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       {filteredStudents.length > 0 &&
