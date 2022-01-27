@@ -1,13 +1,12 @@
 import { TestScoresCard } from "./styles";
 
-const TestScores = (props) => {
-  console.log(props);
+const TestScores = ({ grades }) => {
   return (
     <TestScoresCard>
       <ol>
-        {props.scores.map((score, index) => {
+        {grades.map((score, index) => {
           return (
-            <li>
+            <li key={`grade${index}`}>
               Test {index + 1}: <span> {score}%</span>
             </li>
           );

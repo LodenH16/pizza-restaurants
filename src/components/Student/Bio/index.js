@@ -34,7 +34,7 @@ const Bio = ({
           <li>Skill: {skill}</li>
           <li>Average: {gradeAverage}%</li>
         </ul>
-        {testScoresDisplay && <TestScores scores={grades} />}
+        {testScoresDisplay && <TestScores grades={grades} />}
         <TagBlock tags={tags} />
         <Input placeholder="Add a tag" onKeyUp={(e) => handleKeyPress(e)} />
       </BioWrapper>

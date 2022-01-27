@@ -30,6 +30,7 @@ const Student = ({ studentInfo, searchTag }) => {
             lastName={lastName}
             skill={skill}
             gradeAverage={gradeAverage}
+            grades={grades}
             testScoresDisplay={testScoresDisplay}
             addTagFunction={addTag}
             tags={tags}
