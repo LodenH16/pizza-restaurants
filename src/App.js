@@ -6,7 +6,7 @@ const App = () => {
   const [students, setStudents] = useState([]);
   const [filteredStudents, setFilteredStudents] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
-
+  const [searchTag, setSearchTag] = useState("");
   useEffect(() => {
     fetch("https://api.hatchways.io/assessment/students")
       .then((res) => res.json())
@@ -51,15 +51,23 @@ const App = () => {
       <SearchWrapper>
         <Input
           placeholder="Search by name"
-          onChange={(event) => searchStudents(event.target.value)}
+          onChange={(e) => searchStudents(e.target.value)}
         ></Input>
         {/*I don't like this*/}
-        <Input className="secondInput" placeholder="Search by tag"></Input>
+        <Input
+          className="secondInput"
+          placeholder="Search by tag"
+          onChange={(e) => setSearchTag(e.target.value)}
+        ></Input>
       </SearchWrapper>
       {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
       {filteredStudents.length > 0 &&
         filteredStudents.map((data, index) => (
-          <Student key={`student${index}`} data={data} />
+          <Student
+            key={`student${index}`}
+            studentInfo={data}
+            searchTag={searchTag}
+          />
         ))}
     </AppWrapper>
   );
