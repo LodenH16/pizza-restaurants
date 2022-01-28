@@ -20,10 +20,12 @@ const App = () => {
         <Input
           placeholder="Search by name"
           onChange={(e) => setSearchName(e.target.value)}
+          role={"searchBar"}
         ></Input>
         <Input
           placeholder="Search by tag"
           onChange={(e) => setSearchTag(e.target.value)}
+          role={"searchBar"}
         ></Input>
       </SearchWrapper>
       <StudentsWrapper>
