@@ -1,16 +1,9 @@
-import {
-  ErrorMessage,
-  Input,
-  AppWrapper,
-  SearchWrapper,
-  StudentsWrapper,
-} from "./styles";
+import { Input, AppWrapper, SearchWrapper, StudentsWrapper } from "./styles";
 import React, { useState, useEffect } from "react";
 import Student from "./components/Student";
 
 const App = () => {
   const [students, setStudents] = useState([]);
-  const [errorMessage, setErrorMessage] = useState("");
   const [searchTag, setSearchTag] = useState("");
   const [searchName, setSearchName] = useState("");
   useEffect(() => {
@@ -20,10 +13,6 @@ const App = () => {
         setStudents(data.students);
       });
   }, []);
-
-  const createErrorMessage = (message) => {
-    setErrorMessage(message);
-  };
 
   return (
     <AppWrapper>
@@ -38,13 +27,11 @@ const App = () => {
         ></Input>
       </SearchWrapper>
       <StudentsWrapper>
-        {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
         {students.map((data, index) => (
           <Student
             key={`student${index}`}
             studentInfo={data}
             searchTag={searchTag}
-            createErrorMessage={createErrorMessage}
             searchName={searchName}
           />
         ))}

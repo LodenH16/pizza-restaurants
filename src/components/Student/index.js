@@ -4,12 +4,7 @@ import Bio from "./Bio";
 import plus from "../../assets/plus.png";
 import minus from "../../assets/minus.png";
 
-const Student = ({
-  studentInfo,
-  searchTag,
-  searchName,
-  createErrorMessage,
-}) => {
+const Student = ({ studentInfo, searchTag, searchName }) => {
   const [testScoresDisplay, setTestScoresDisplay] = useState(false);
   const [tags, setTags] = useState([]);
   const [hasNameMatch, setNameMatch] = useState(true);
