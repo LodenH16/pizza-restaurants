@@ -31,7 +31,7 @@ const Student = ({ studentInfo, searchTag, searchName }) => {
 
   if (hasNameMatch && hasTagMatch) {
     return (
-      <StudentCard>
+      <StudentCard role={"student"}>
         <StudentImg src={pic} alt={"student profile pic"} />
         <Bio
           city={city}
