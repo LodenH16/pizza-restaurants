@@ -28,40 +28,6 @@ const App = () => {
     setErrorMessage(message);
   };
 
-  /*
-  const searchStudents = (searchValue) => {
-    //filter the students
-    const filteredList = students.filter((student) => {
-      //todo trim searchValue
-      return (
-        student.firstName.toUpperCase().includes(searchValue.toUpperCase()) ||
-        student.lastName.toUpperCase().includes(searchValue.toUpperCase())
-      );
-    });
-    //todo make switch into if else with variables
-    //todo allow spaces
-    const hasNameMatch = filteredList.length > 0;
-    //const hasValue = searchValue !== "";
-    switch (true) {
-      case /\W/.test(searchValue):
-        setErrorMessage("Error: Invalid Character");
-        setFilteredStudents(students);
-        break;
-      case searchValue !== "" && hasNameMatch:
-        setErrorMessage(null);
-        setFilteredStudents(filteredList);
-        break;
-      case searchValue !== "" && !hasNameMatch:
-        setErrorMessage("No results");
-        setFilteredStudents(filteredList);
-        break;
-      default:
-        setFilteredStudents(students);
-        setErrorMessage(null);
-        break;
-    }
-  };*/
-
   return (
     <AppWrapper>
       <SearchWrapper>
