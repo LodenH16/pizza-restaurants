@@ -7,11 +7,15 @@ const App = () => {
   const [searchTag, setSearchTag] = useState("");
   const [searchName, setSearchName] = useState("");
   useEffect(() => {
+    let isMounted = true;
     fetch("https://api.hatchways.io/assessment/students")
       .then((res) => res.json())
       .then((data) => {
-        setStudents(data.students);
+        if (isMounted) setStudents(data.students);
       });
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return (
