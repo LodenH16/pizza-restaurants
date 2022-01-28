@@ -20,10 +20,11 @@ export const ErrorMessage = styled.p`
 `;
 
 export const Input = styled.input`
-  margin: 5px auto 0px auto;
+  margin: 5px 0px 0px 0px;
   padding: 10px 5px 5px;
   font-family: Raleway;
   width: 100%;
+  max-width: 645px;
   border: none;
   border-bottom: 1px solid lightgray;
   :focus {
@@ -40,11 +41,13 @@ export const SearchWrapper = styled.div`
   justify-content: space-between;
   z-index: 10;
   height: 18%;
+  width: 100%;
   overflow: hidden;
   position: sticky;
   top: 0px;
+  right: 0px;
 `;
-//todo add margin between search bars
+
 export const StudentsWrapper = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
