@@ -10,8 +10,6 @@ import Student from "./components/Student";
 
 const App = () => {
   const [students, setStudents] = useState([]);
-  const [filteredStudents, setFilteredStudents] = useState([]);
-  //todo make errormessage an empty string
   const [errorMessage, setErrorMessage] = useState("");
   const [searchTag, setSearchTag] = useState("");
   const [searchName, setSearchName] = useState("");
@@ -20,7 +18,6 @@ const App = () => {
       .then((res) => res.json())
       .then((data) => {
         setStudents(data.students);
-        setFilteredStudents(data.students);
       });
   }, []);
 
