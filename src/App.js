@@ -1,6 +1,7 @@
 import { Input, AppWrapper, SearchWrapper, StudentsWrapper } from "./styles";
 import React, { useState, useEffect } from "react";
 import Student from "./components/Student";
+import { fetchStudents } from "./fetch";
 
 const App = () => {
   const [students, setStudents] = useState([]);
@@ -8,16 +9,13 @@ const App = () => {
   const [searchName, setSearchName] = useState("");
   useEffect(() => {
     let isMounted = true;
-    fetch("https://api.hatchways.io/assessment/students")
-      .then((res) => res.json())
-      .then((data) => {
-        if (isMounted) setStudents(data.students);
-      });
+    fetchStudents().then((data) => {
+      if (isMounted) setStudents(data);
+    });
     return () => {
       isMounted = false;
     };
   }, []);
-
   return (
     <AppWrapper>
       <SearchWrapper>
