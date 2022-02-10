@@ -88,7 +88,7 @@ const createRestaurant = () => {
     firstName: firstNames[randomNumber(firstNames.length)],
     lastName: lastNames[randomNumber(lastNames.length)],
     city: cities[randomNumber(cities.length)],
-    price: randomNumber(15),
+    price: randomNumber(100) / 10 + 5,
     pic: logos[randomNumber(logos.length)],
     toppings: generateToppings(),
   };
