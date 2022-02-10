@@ -70,12 +70,11 @@ const randomNumber = (range) => {
 };
 const generateToppings = () => {
   let noDupesArray = [];
-  for (let i = 0; i <= 8; i++) {
-    let randomIndex = randomNumber(toppings.length);
-    noDupesArray.includes(randomIndex)
-      ? console.log()
-      : noDupesArray.push(randomIndex);
+  while (noDupesArray.length < 8) {
+    let randomDigit = randomNumber(toppings.length);
+    if (!noDupesArray.includes(randomDigit)) noDupesArray.push(randomDigit);
   }
+
   return noDupesArray.map((index) => {
     return {
       name: toppings[index],
