@@ -5,7 +5,7 @@ const delay = (n) => new Promise((resolve) => setTimeout(resolve, n));
 
 export function fetchRestaurants() {
   let arrayOfRestaurants = [];
-  for (let i = 0; i <= 25; i++) {
+  while (arrayOfRestaurants.length < 25) {
     arrayOfRestaurants.push(createRestaurant());
   }
 
