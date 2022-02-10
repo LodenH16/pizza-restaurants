@@ -1,18 +1,18 @@
-import { TestScoresCard } from "./styles";
+import { ToppingsCard } from "./styles";
 
-const TestScores = ({ grades }) => {
+const Toppings = ({ toppings }) => {
   return (
-    <TestScoresCard>
+    <ToppingsCard>
       <ol>
-        {grades.map((score, index) => {
+        {toppings.map((toppings, index) => {
           return (
             <li key={`grade${index}`}>
-              Test {index + 1}: <span> {score}%</span>
+              {toppings.name}: <span> {toppings.price}</span>
             </li>
           );
         })}
       </ol>
-    </TestScoresCard>
+    </ToppingsCard>
   );
 };
-export default TestScores;
+export default Toppings;

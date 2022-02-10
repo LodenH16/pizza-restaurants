@@ -1,24 +1,24 @@
 import { useState, useEffect } from "react";
-import { TestButtonImg, StudentCard, StudentImg, TestsButton } from "./styles";
+import {
+  ToppingsButtonImg,
+  RestaurantCard,
+  RestaurantImg,
+  ToppingsButton,
+} from "./styles";
 import Bio from "./Bio";
 import plus from "../../assets/plus.png";
 import minus from "../../assets/minus.png";
 
-const Student = ({ studentInfo, searchTag, searchName }) => {
-  const [testScoresDisplay, setTestScoresDisplay] = useState(false);
+const Restaurant = ({ restaurantInfo, searchTag, searchName }) => {
+  const [toppingsDisplay, setToppingsDisplay] = useState(false);
   const [tags, setTags] = useState([]);
   const [hasNameMatch, setNameMatch] = useState(true);
   const [hasTagMatch, setTagMatch] = useState(true);
-  const { city, company, email, firstName, grades, lastName, pic, skill } =
-    studentInfo;
-
+  const { city, price, firstName, toppings, lastName, pic } = restaurantInfo;
   //concat first and last name
   const fullName = firstName.toUpperCase().concat(" ", lastName.toUpperCase());
-  //get average from array of grades
-  const gradeAverage =
-    grades.reduce((sum, data) => {
-      return sum + parseInt(data);
-    }, 0) / grades.length;
+
+  const email = firstName.slice(0, 3) + lastName.slice(0, 4) + "@pizzamail.com";
 
   const addTag = (newTag) => {
     setTags([...tags, newTag]);
@@ -31,29 +31,27 @@ const Student = ({ studentInfo, searchTag, searchName }) => {
 
   if (hasNameMatch && hasTagMatch) {
     return (
-      <StudentCard role={"student"}>
-        <StudentImg src={pic} alt={"student profile pic"} />
+      <RestaurantCard role={"Restaurant"}>
+        <RestaurantImg src={pic} alt={"Restaurant profile pic"} />
         <Bio
           city={city}
-          company={company}
           email={email}
           firstName={firstName}
           lastName={lastName}
-          skill={skill}
-          gradeAverage={gradeAverage}
-          grades={grades}
-          testScoresDisplay={testScoresDisplay}
+          price={price}
+          toppings={toppings}
+          testScoresDisplay={toppingsDisplay}
           addTagFunction={addTag}
           tags={tags}
         />
-        <TestsButton onClick={() => setTestScoresDisplay(!testScoresDisplay)}>
-          <TestButtonImg src={testScoresDisplay ? minus : plus} />
-        </TestsButton>
-      </StudentCard>
+        <ToppingsButton onClick={() => setToppingsDisplay(!toppingsDisplay)}>
+          <ToppingsButtonImg src={toppingsDisplay ? minus : plus} />
+        </ToppingsButton>
+      </RestaurantCard>
     );
   } else {
     return null;
   }
 };
 
-export default Student;
+export default Restaurant;

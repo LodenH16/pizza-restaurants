@@ -1,5 +1,5 @@
-import TestScores from "./TestScores";
-import { BioWrapper, StudentDetails, StudentName } from "./styles";
+import Toppings from "./TestScores";
+import { BioWrapper, RestaurantDetails, RestaurantName } from "./styles";
 import { Input } from "../../../styles";
 import TagBlock from "./TagBlock";
 
@@ -7,13 +7,12 @@ const Bio = ({
   firstName,
   lastName,
   email,
-  company,
-  skill,
-  grades,
-  gradeAverage,
   testScoresDisplay,
   addTagFunction,
   tags,
+  city,
+  price,
+  toppings,
 }) => {
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -23,22 +22,21 @@ const Bio = ({
   };
 
   return (
-    <StudentDetails>
-      <StudentName>
+    <RestaurantDetails>
+      <RestaurantName>
         {firstName.toUpperCase() + " " + lastName.toUpperCase()}
-      </StudentName>
+      </RestaurantName>
       <BioWrapper>
         <ul>
           <li>Email: {email}</li>
-          <li>Company: {company}</li>
-          <li>Skill: {skill}</li>
-          <li>Average: {gradeAverage}%</li>
+          <li>City: {city}</li>
+          <li>Price: {price}</li>
         </ul>
-        {testScoresDisplay && <TestScores grades={grades} />}
+        {testScoresDisplay && <Toppings toppings={toppings} />}
         <TagBlock tags={tags} />
         <Input placeholder="Add a tag" onKeyUp={(e) => handleKeyPress(e)} />
       </BioWrapper>
-    </StudentDetails>
+    </RestaurantDetails>
   );
 };
 export default Bio;

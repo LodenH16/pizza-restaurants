@@ -1,21 +1,22 @@
-import { Input, AppWrapper, SearchWrapper, StudentsWrapper } from "./styles";
+import { Input, AppWrapper, SearchWrapper, RestaurantsWrapper } from "./styles";
 import React, { useState, useEffect } from "react";
-import Student from "./components/Student";
-import { fetchStudents } from "./fetch";
+import Restaurant from "./components/Restaurant";
+import { fetchRestaurants } from "./fetch";
 
 const App = () => {
-  const [students, setStudents] = useState([]);
+  const [restaurants, setRestaurants] = useState([]);
   const [searchTag, setSearchTag] = useState("");
   const [searchName, setSearchName] = useState("");
   useEffect(() => {
     let isMounted = true;
-    fetchStudents().then((data) => {
-      if (isMounted) setStudents(data);
+    fetchRestaurants().then((data) => {
+      if (isMounted) setRestaurants(data);
     });
     return () => {
       isMounted = false;
     };
   }, []);
+
   return (
     <AppWrapper>
       <SearchWrapper>
@@ -30,16 +31,16 @@ const App = () => {
           role={"searchBar"}
         ></Input>
       </SearchWrapper>
-      <StudentsWrapper>
-        {students.map((data, index) => (
-          <Student
-            key={`student${index}`}
-            studentInfo={data}
+      <RestaurantsWrapper>
+        {restaurants.map((data, index) => (
+          <Restaurant
+            key={`restaurant${index}`}
+            restaurantInfo={data}
             searchTag={searchTag}
             searchName={searchName}
           />
         ))}
-      </StudentsWrapper>
+      </RestaurantsWrapper>
     </AppWrapper>
   );
 };
