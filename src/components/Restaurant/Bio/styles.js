@@ -25,9 +25,11 @@ export const RestaurantName = styled.h2`
   margin: 10px 0px 3px 0px;
   width: 100%;
   flex-basis: 100%;
+  word-wrap: break-word;
 `;
 
 export const RestaurantDetails = styled.div`
   display: block;
+  max-width: 70%;
   margin-bottom: 12px;
 `;
