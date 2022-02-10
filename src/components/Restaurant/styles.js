@@ -9,6 +9,7 @@ export const RestaurantCard = styled.div`
 
 export const RestaurantImg = styled.img`
   width: 95px;
+  height: 95px;
   border-radius: 50%;
   margin: 20px 20px auto 20px;
   display: inline;
