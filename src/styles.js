@@ -48,7 +48,7 @@ export const SearchWrapper = styled.div`
   right: 0px;
 `;
 
-export const StudentsWrapper = styled.div`
+export const RestaurantsWrapper = styled.div`
   overflow-y: scroll;
   overflow-x: hidden;
   height: 82%;

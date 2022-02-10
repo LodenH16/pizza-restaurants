@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-export const StudentCard = styled.div`
+export const RestaurantCard = styled.div`
   position: relative;
   display: flex;
   flex-wrap: wrap;
   border-bottom: 1px solid lightgray;
 `;
 
-export const StudentImg = styled.img`
+export const RestaurantImg = styled.img`
   width: 95px;
   border-radius: 50%;
   margin: 20px 20px auto 20px;
@@ -15,7 +15,7 @@ export const StudentImg = styled.img`
   border: 1px solid lightgray;
 `;
 
-export const TestsButton = styled.button`
+export const ToppingsButton = styled.button`
   height: 35px;
   width: 35px;
   border: none;
@@ -25,6 +25,6 @@ export const TestsButton = styled.button`
   top: 10px;
 `;
 
-export const TestButtonImg = styled.img`
+export const ToppingsButtonImg = styled.img`
   width: 100%;
 `;

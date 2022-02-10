@@ -21,13 +21,13 @@ export const BioWrapper = styled.div`
   }
 `;
 
-export const StudentName = styled.h2`
+export const RestaurantName = styled.h2`
   margin: 10px 0px 3px 0px;
   width: 100%;
   flex-basis: 100%;
 `;
 
-export const StudentDetails = styled.div`
+export const RestaurantDetails = styled.div`
   display: block;
   margin-bottom: 12px;
 `;
