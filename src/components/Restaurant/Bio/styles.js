@@ -18,6 +18,7 @@ export const BioWrapper = styled.div`
   }
   li span {
     margin-left: 20px;
+    float: right;
   }
 `;
 
