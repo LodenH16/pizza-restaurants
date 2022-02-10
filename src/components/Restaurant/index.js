@@ -31,7 +31,7 @@ const Restaurant = ({ restaurantInfo, searchTag, searchName }) => {
 
   if (hasNameMatch && hasTagMatch) {
     return (
-      <RestaurantCard role={"Restaurant"}>
+      <RestaurantCard role={"restaurant"}>
         <RestaurantImg src={pic} alt={"Restaurant profile pic"} />
         <Bio
           city={city}
