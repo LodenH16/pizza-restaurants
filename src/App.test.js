@@ -1,4 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import App from "./App";
 
 describe(`app`, () => {
@@ -17,7 +18,7 @@ describe(`app`, () => {
   });
 
   it("should filter Restaurants by name", async () => {
-    const { queryAllByRole, queryByPlaceholderText } = render(<App />);
+    render(<App />);
     let totalRestaurants;
     await waitFor(() => {
       totalRestaurants = screen.getAllByRole("restaurant").length;
@@ -29,4 +30,26 @@ describe(`app`, () => {
       expect(returnedSearches < totalRestaurants).toBeTruthy();
     });
   });
+  /* WORK IN PROGRESS
+  it("should open toppings when plus button is clicked", async () => {
+    let restaurant;
+    await waitFor(() => {
+      restaurant = screen.getAllByRole("restaurant")[0];
+    });
+  });
+
+  it("should filter Restaurants by tag", async () => {
+    render(<App />);
+    let restaurant;
+    await waitFor(() => {
+      restaurant = screen.getAllByRole("restaurant")[0];
+    });
+    fireEvent.
+    const nameSearchBar = screen.queryByPlaceholderText("Search by tag");
+    fireEvent.change(nameSearchBar, { target: { value: "z" } });
+    await waitFor(() => {
+      const returnedSearches = screen.getAllByRole("restaurant").length;
+      expect(returnedSearches < totalRestaurants).toBeTruthy();
+    });
+  });*/
 });
