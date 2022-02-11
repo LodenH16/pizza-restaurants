@@ -23,7 +23,7 @@ const Bio = ({
 
   return (
     <RestaurantDetails>
-      <RestaurantName>
+      <RestaurantName role={"restaurantName"}>
         {firstName.toUpperCase() + " " + lastName.toUpperCase()}
       </RestaurantName>
       <BioWrapper>

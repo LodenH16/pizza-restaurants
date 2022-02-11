@@ -8,20 +8,25 @@ describe(`app`, () => {
     expect(searchBars).toHaveLength(2);
   });
 
-  it("should render multiple Students", async () => {
+  it("should render multiple Restaurants", async () => {
     const { getAllByRole } = render(<App />);
     await waitFor(() => {
-      const students = screen.getAllByRole("student");
-      expect(students.length).toBeGreaterThan(0);
+      const Restaurants = screen.getAllByRole("restaurant");
+      expect(Restaurants.length).toBeGreaterThan(0);
     });
   });
 
-  it("should filter students by name", async () => {
+  it("should filter Restaurants by name", async () => {
     const { queryAllByRole, queryByPlaceholderText } = render(<App />);
+    let totalRestaurants;
+    await waitFor(() => {
+      totalRestaurants = screen.getAllByRole("restaurant").length;
+    });
     const nameSearchBar = screen.queryByPlaceholderText("Search by name");
     fireEvent.change(nameSearchBar, { target: { value: "z" } });
     await waitFor(() => {
-      expect(screen.getAllByRole("student").length).toBe(1);
+      const returnedSearches = screen.getAllByRole("restaurant").length;
+      expect(returnedSearches < totalRestaurants).toBeTruthy();
     });
   });
 });
